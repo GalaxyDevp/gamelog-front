@@ -99,7 +99,7 @@ const Dashboard = () => {
         closeTrigger={false}
         className="px-2 py-0"
       >
-        <GameDetail img={preload} />
+        <GameDetail img={preload} setIsOpen={setIsOpen} />
       </ModalCustom>
     </div>
   );
