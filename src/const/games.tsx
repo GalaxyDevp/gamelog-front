@@ -1,0 +1,87 @@
+import rip from "../assets/images/9rip.webp";
+import itehari from "../assets/images/itehari.webp";
+import preload from "../assets/images/p3r.webp";
+import proyal from "../assets/images/p5r.webp";
+import piofiore from "../assets/images/piofiore.webp";
+import p4g from "../assets/images/pgolden.webp";
+
+export const games = [
+  {
+    id: 1,
+    title: "Persona 3 Reload",
+    status: "Playing",
+    img: preload,
+    developer: ["Atlus", "Sega"],
+    releaseDate: "Feb 02, 2024",
+    genres: ["RPG", "Adventure"],
+    platforms: ["Windows PC", "PS5", "Xbox Series X/S", "Nintendo Switch 2"],
+    favorite: false,
+    createdAt: "2026-04-11",
+  },
+  {
+    id: 2,
+    title: "Persona 5 Royal",
+    status: "Completed",
+    img: proyal,
+    developer: ["Atlus", "Sega"],
+    releaseDate: "Oct 31, 2019",
+    genres: ["RPG", "Adventure"],
+    platforms: ["Windows PC", "PS5", "Xbox Series X/S", "Nintendo Switch 2"],
+    favorite: true,
+    createdAt: "2026-04-12",
+  },
+  {
+    id: 3,
+    title: "9Rip",
+    status: "Completed",
+    img: rip,
+    developer: ["Otomate", "Idea Factory"],
+    releaseDate: "Jun 29, 2023",
+    genres: ["Visual Novel", "Horror"],
+    platforms: ["Nintendo Switch"],
+    favorite: true,
+    createdAt: "2026-02-13",
+  },
+  {
+    id: 4,
+    title: "Illusion of Itehari",
+    status: "Completed",
+    img: itehari,
+    developer: ["LicoBiTs", "Aksys Games"],
+    releaseDate: "Apr 11, 2024",
+    genres: ["Visual Novel", "Fantasy"],
+    platforms: ["Nintendo Switch"],
+    favorite: false,
+    createdAt: "2026-03-13",
+  },
+  {
+    id: 5,
+    title: "Piofiore: Fated Memories",
+    status: "Backlog",
+    img: piofiore,
+    developer: ["Otomate", "Idea Factory"],
+    releaseDate: "Aug 30, 2018",
+    genres: ["Visual Novel", "Romance"],
+    platforms: ["Nintendo Switch"],
+    favorite: false,
+    createdAt: "2025-10-13",
+  },
+  {
+    id: 6,
+    title: "Persona 4 Golden",
+    status: "Playing",
+    img: p4g,
+    developer: ["Atlus", "Sega"],
+    releaseDate: "Jun 15, 2012",
+    genres: ["RPG", "Adventure"],
+    platforms: [
+      "Windows PC",
+      "PS4",
+      "PS5",
+      "Xbox Series X/S",
+      "Nintendo Switch 2",
+    ],
+    favorite: false,
+    createdAt: "2026-04-13",
+  },
+];

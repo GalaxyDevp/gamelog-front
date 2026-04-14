@@ -1,16 +1,23 @@
 import { LibraryBig } from "lucide-react";
-import preload from "../../assets/images/p3r.webp";
 import CardImg from "../../components/CardImg";
+import { Modal } from "@mantine/core";
+import GameDetail from "../games/gameDetail";
+import { useState } from "react";
+import { games } from "../../const/games";
 
 const BacklogGames = () => {
-  const backlogGames = [
-    {
-      id: 1,
-      title: "Persona 3 Reload",
-      status: "In progress",
-      img: preload,
-    },
-  ];
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedGame, setSelectedGame] = useState<{
+    id: number;
+    title: string;
+    status: string;
+    img: string;
+    developer: string[];
+    releaseDate: string;
+    genres: string[];
+    platforms: string[];
+  } | null>(null);
+  const backlogGames = games.filter((game) => game.status === "Backlog");
   return (
     <div>
       <div className="flex items-center gap-2 text-purple-800 dark:text-white">
@@ -24,14 +31,29 @@ const BacklogGames = () => {
               key={game.id}
               className="border border-1 border-violet-200"
               img={game.img}
+              onClick={() => {
+                setIsOpen(true);
+                setSelectedGame(game);
+              }}
             >
-              <div className="flex flex-col items-center py-2">
-                <p className="text-sm font-semibold">{game.title}</p>
+              <div className="flex flex-col items-center justify-center p-2 h-14">
+                <p className="text-sm font-semibold line-clamp-2 text-center">
+                  {game.title}
+                </p>
               </div>
             </CardImg>
           </div>
         ))}
       </div>
+      <Modal
+        opened={isOpen}
+        onClose={() => setIsOpen(false)}
+        withCloseButton={false}
+      >
+        {selectedGame && (
+          <GameDetail game={selectedGame} setIsOpen={setIsOpen} />
+        )}
+      </Modal>
     </div>
   );
 };

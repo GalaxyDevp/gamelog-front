@@ -1,16 +1,17 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import ThemeToggle from "./ThemeToggle";
-import { Gamepad, UserRound } from "lucide-react";
-import ModalCustom from "./Modal";
 import { useState } from "react";
-import SearchGames from "../pages/games/SearchGames";
 import FormAddGame from "../pages/formAddGame";
+import { Menu, Modal } from "@mantine/core";
+// import kaelix from "../assets/images/kaelixDebonair.jpg";
+import { ChevronDown, UserRound } from "lucide-react";
 
 const Navbar = () => {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "All Games", href: "/games" },
   ];
+  const navigate = useNavigate();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,14 +33,25 @@ const Navbar = () => {
               ))}
             </ul>
             <div className="flex items-center flex-row gap-4">
-              <div className="transition bg-fuchsia-200 p-2 rounded-full text-pink-900 dark:bg-purple-800 dark:text-purple-200 cursor-pointer">
-                <Link to="/profile">
-                  <UserRound width={20} height={20} />
-                </Link>
-              </div>
+              <Menu trigger="hover" width={150} shadow="md">
+                <Menu.Target>
+                  <div className="flex items-center gap-2 cursor-pointer">
+                    {/* <img src={kaelix} className="w-10 h-10 rounded-full" /> */}
+                    Kaelix <ChevronDown size={14} />
+                  </div>
+                </Menu.Target>
+                <Menu.Dropdown>
+                  <Menu.Item
+                    leftSection={<UserRound size={14} />}
+                    onClick={() => navigate("/profile")}
+                  >
+                    Profile
+                  </Menu.Item>
+                </Menu.Dropdown>
+              </Menu>
               <button
                 className="bg-violet-500 py-2 px-4 rounded-xl text-white hover:bg-violet-600 dark:bg-purple-800 
-            dark:text-purple-200 cursor-pointer dark:hover:bg-purple-700 dark:hover:text-purple-200"
+                          dark:text-purple-200 cursor-pointer dark:hover:bg-purple-700 dark:hover:text-purple-200"
                 onClick={() => setIsOpen(true)}
               >
                 Add Game
@@ -49,18 +61,11 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <ModalCustom
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        title="Add Game"
-        icon={<Gamepad />}
-        size="lg"
-      >
+      <Modal opened={isOpen} onClose={() => setIsOpen(false)} title="Add Game">
         <div className="flex flex-col gap-4">
-          <SearchGames />
           <FormAddGame />
         </div>
-      </ModalCustom>
+      </Modal>
     </>
   );
 };

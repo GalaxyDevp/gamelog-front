@@ -1,23 +1,25 @@
 import CardImg from "../../components/CardImg";
-import rip from "../../assets/images/9rip.webp";
-import itehari from "../../assets/images/itehari.webp";
 import { Trophy } from "lucide-react";
+import { useState } from "react";
+import { games } from "../../const/games";
+import { Modal } from "@mantine/core";
+import GameDetail from "../games/gameDetail";
 
 const CompletedGames = () => {
-  const completedGames = [
-    {
-      id: 1,
-      title: "9Rip",
-      status: "Completed",
-      img: rip,
-    },
-    {
-      id: 2,
-      title: "Illusion of Itehari",
-      status: "Completed",
-      img: itehari,
-    },
-  ];
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectdGame, setSelectedGame] = useState<{
+    id: number;
+    title: string;
+    status: string;
+    img: string;
+    developer: string[];
+    releaseDate: string;
+    genres: string[];
+    platforms: string[];
+  } | null>(null);
+
+  const completedGames = games.filter((game) => game.status === "Completed");
+
   return (
     <div>
       <div className="flex items-center gap-2 text-purple-800 dark:text-white">
@@ -31,14 +33,27 @@ const CompletedGames = () => {
               key={game.id}
               className="border border-1 border-violet-200"
               img={game.img}
+              onClick={() => {
+                setIsOpen(true);
+                setSelectedGame(game);
+              }}
             >
-              <div className="flex flex-col items-center py-2">
-                <p className="text-sm font-semibold">{game.title}</p>
+              <div className="flex flex-col items-center justify-center p-2 h-12">
+                <p className="text-sm font-semibold line-clamp-2 text-center">
+                  {game.title}
+                </p>
               </div>
             </CardImg>
           </div>
         ))}
       </div>
+      <Modal
+        opened={isOpen}
+        onClose={() => setIsOpen(false)}
+        withCloseButton={false}
+      >
+        {selectdGame && <GameDetail game={selectdGame} setIsOpen={setIsOpen} />}
+      </Modal>
     </div>
   );
 };
