@@ -11,7 +11,7 @@ const CardImg = ({
 }) => {
   return (
     <div
-      className={`rounded-xl w-fit ${className} hover:scale-105 transition-all duration-300 bg-white dark:border-gray-700 dark:bg-gray-800`}
+      className={`rounded-xl w-44 flex-shrink-0 rounded-xl ${className} hover:scale-105 transition-all duration-300 bg-white dark:border-gray-700 dark:bg-gray-800`}
       onClick={onClick}
     >
       <div>
