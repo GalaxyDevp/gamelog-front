@@ -3,6 +3,7 @@ import { RouterProvider } from "react-router";
 import router from "./routes/routes";
 import ThemeProvider from "./provider/themeProvider";
 import "@mantine/core/styles.css";
+import "@mantine/spotlight/styles.css";
 import { MantineProvider } from "@mantine/core";
 import { useThemeStore } from "./store/themeStore";
 
