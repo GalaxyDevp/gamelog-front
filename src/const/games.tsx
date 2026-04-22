@@ -57,7 +57,7 @@ export const games = [
   {
     id: 5,
     title: "Piofiore: Fated Memories",
-    status: "Backlog",
+    status: "Playing",
     img: piofiore,
     developer: ["Otomate", "Idea Factory"],
     releaseDate: "Aug 30, 2018",

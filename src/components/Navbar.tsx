@@ -91,10 +91,18 @@ const Navbar = () => {
               <ThemeToggle />
             </div>
           </div>
-          <div className="md:hidden">
+          <div className="md:hidden flex flex-row gap-4 items-center">
+            <button
+              className="bg-violet-500 py-2 px-4 rounded-xl text-white hover:bg-violet-600 dark:bg-purple-800 
+                          dark:text-purple-200 cursor-pointer dark:hover:bg-purple-700 dark:hover:text-purple-200"
+              onClick={spotlight.open}
+            >
+              Add Game
+            </button>
+            <ThemeToggle />
             <Burger opened={openDrawer} onClick={open} />
-            <Drawer opened={openDrawer} onClose={close} size="100%">
-              <MobileMenu items={navItems} />
+            <Drawer opened={openDrawer} onClose={close}>
+              <MobileMenu items={navItems} close={close} />
             </Drawer>
           </div>
         </div>

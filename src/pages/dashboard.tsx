@@ -51,7 +51,7 @@ const Dashboard = () => {
   return (
     <div className="py-2 text-black dark:text-white">
       <h1 className="text-2xl font-bold mb-2">Welcome back, Kaelix!</h1>
-      <div className="flex flex-row gap-4 py-4">
+      <div className="flex flex-wrap md:flex-row gap-4 py-4">
         {itemGames.map((item) => (
           <div className="">
             <CardStatus item={item} />
@@ -60,7 +60,7 @@ const Dashboard = () => {
       </div>
       <div className="py-4">
         <h1 className="text-xl font-bold mb-2">Recent played games</h1>
-        <div className="flex flex-wrap gap-4 py-4 ">
+        <div className="flex overflow-x-auto scroll-smooth gap-4 py-4 ">
           {recentGames.map((game) => (
             <>
               <CardImg
