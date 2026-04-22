@@ -24,7 +24,7 @@ const BacklogGames = () => {
         <LibraryBig className="w-5 h-5" />
         <p className="font-semibold">Backlog ({backlogGames.length})</p>
       </div>
-      <div className="flex flex-wrap gap-4 py-4">
+      <div className="flex overflow-x-auto scroll-smooth gap-4 py-4">
         {backlogGames.map((game) => (
           <div className="col-span-6 md:col-span-3">
             <CardImg

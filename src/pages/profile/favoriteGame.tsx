@@ -25,7 +25,7 @@ const FavoriteGame = () => {
           Favorites Games
         </h1>
       </div>
-      <div className="flex gap-4 pt-2">
+      <div className="flex flex-wrap md:flex-row gap-4 pt-2">
         {favoriteGame.map((game) => (
           <CardImg
             key={game.id}

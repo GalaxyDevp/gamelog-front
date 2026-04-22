@@ -58,7 +58,7 @@ const Profile = () => {
               <p className="text-sm">@kaelixdebonair</p>
             </div>
           </div>
-          <div className="flex flex-row justify-center gap-4 py-4">
+          <div className="flex flex-wrap md:flex-row justify-center gap-4 py-4">
             {cardStatus.map((item) => (
               <div className="">
                 <CardStatus item={item} />
@@ -69,7 +69,7 @@ const Profile = () => {
             <FavoriteGame />
           </div>
           <div className="border-t-1 border-violet-200 dark:border-gray-600"></div>
-          <div>
+          <div className="flex flex-col gap-4">
             <CurrentGames />
             <CompletedGames />
             <BacklogGames />

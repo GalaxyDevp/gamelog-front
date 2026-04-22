@@ -26,7 +26,7 @@ const CompletedGames = () => {
         <Trophy className="w-5 h-5" />
         <p className="font-semibold">Completed ({completedGames.length})</p>
       </div>
-      <div className="flex flex-wrap gap-4 py-4">
+      <div className="flex overflow-x-auto scroll-smooth gap-4 py-4">
         {completedGames.map((game) => (
           <div className="col-span-6 md:col-span-3">
             <CardImg
@@ -38,7 +38,7 @@ const CompletedGames = () => {
                 setSelectedGame(game);
               }}
             >
-              <div className="flex flex-col items-center justify-center p-2 h-12">
+              <div className="flex flex-col items-center justify-center p-2 h-14">
                 <p className="text-sm font-semibold line-clamp-2 text-center">
                   {game.title}
                 </p>
