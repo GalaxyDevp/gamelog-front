@@ -49,7 +49,7 @@ const FormAddGame = ({ selectedGame }: props) => {
   return (
     <>
       {selectedGame && (
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col">
           <div className="flex flex-col justify-center items-center px-3 gap-2">
             <img src={selectedGame.img} alt="" className="w-32" />
             <div className="flex flex-col text-black dark:text-white">
